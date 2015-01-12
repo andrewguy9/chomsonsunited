@@ -174,100 +174,97 @@
   <!-- End Team -->
 
 
-      <!-- #contact -->   	
-	<div class="container-fluid" id="contact">
-	<div class="container dark">
-		<h1>Get in contact with us</h1>	
-	
-		<div class="span5">			
-			<form>
-				  <div class="control-group">
-				    <label class="control-label" for="inputName">Name</label>
-				    <div class="controls">
-				      <input type="text" class="span4" id="inputName" placeholder="Name">
-				    </div>
-				  </div>
-				  <div class="control-group">
-				    <label class="control-label" for="inputEmail">Email</label>
-				    <div class="controls">
-				      <input type="text" class="span4" id="inputEmail" placeholder="Email">
-				    </div>
-				  </div>
-				  <div class="control-group">
-				    <label class="control-label" for="inputContact">Message</label>
-				    <div class="controls">
-				     <textarea id="inputContact" class="span4"></textarea>
-				    </div>
-				  </div>
-				  <div class="control-group">
-				    <div class="controls">
-				      <button type="submit" class="btn btn-purple">Contact Us</button>
-				    </div>
-				  </div>
-			</form>
-		</div>
-	
-		<div class="span4">	
-				<h2>Pop in for a chat</h2>
-				
-				<p>Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit.</p>
-	
-				<address>
-				  <strong>Your Company, Inc.</strong><br>
-				  95 Folsom Ave, Suite 600<br>
-				  San Francisco, CA 94107<br>
-				  <abbr title="Phone">P:</abbr> (123) 456-7890
-				</address>
-				 
-				<address>
-				  <strong>Full Name</strong><br>
-				  <a href="mailto:#">first.last@example.com</a>
-				</address>		
-		</div>		
-	</div>
-</div>   <!-- End Contact -->  
-	</div>
+  <!-- #contact -->
+    <div class="container-fluid" id="contact">
+      <div class="container dark">
+        <h1>Get in contact with us</h1>
+
+        <div class="span5">
+          <form>
+            <div class="control-group">
+              <label class="control-label" for="inputName">Name</label>
+              <div class="controls">
+                <input type="text" class="span4" id="inputName" placeholder="Name">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputEmail">Email</label>
+              <div class="controls">
+                <input type="text" class="span4" id="inputEmail" placeholder="Email">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputContact">Message</label>
+              <div class="controls">
+                <textarea id="inputContact" class="span4"></textarea>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="controls">
+                <button type="submit" class="btn btn-purple">Contact Us</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="span4">
+          <h2>Pop in for a chat</h2>
+
+          <p>Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit.</p>
+
+          <address>
+            <strong>Your Company, Inc.</strong><br>
+            95 Folsom Ave, Suite 600<br>
+            San Francisco, CA 94107<br>
+            <abbr title="Phone">P:</abbr> (123) 456-7890
+          </address>
+
+          <address>
+            <strong>Full Name</strong><br>
+            <a href="mailto:#">first.last@example.com</a>
+          </address>
+        </div>
+      </div>
+    </div>
+  <!-- End Contact -->
+</div> <!-- end main-container -->
 <script>
-$(function () {
+  $(function () {
     $(window).scroll(function(){
-    // global scroll to top button
-        if ($(this).scrollTop() > 300) {
-            $('.scrolltop').fadeIn();
-        } else {
-            $('.scrolltop').fadeOut();
-        }        
-    });
-    
-    // scroll nav
-    $('.scroller').click(function(){
-    	var section = $($(this).data("section"));
-    	var top = section.offset().top-82;
-        $("html, body").animate({ scrollTop: top }, 700);
-        return false;
+      // global scroll to top button
+      if ($(this).scrollTop() > 300) {
+        $('.scrolltop').fadeIn();
+      } else {
+        $('.scrolltop').fadeOut();
+      }
     });
 
-	    	    
+    // scroll nav
+    $('.scroller').click(function(){
+      var section = $($(this).data("section"));
+      var top = section.offset().top-82;
+      $("html, body").animate({ scrollTop: top }, 700);
+      return false;
+    });
+
+
     // For the purpose of the demo this allows you to toggle the background between video and img
     $('.toggle_video').click(function(){
-	    
-	   $('#big-video-wrap').fadeToggle();
-	   return false; 
-	    
+      $('#big-video-wrap').fadeToggle();
+      return false; 
     });
-    
-	// BigVideo Setup
+
+    // BigVideo Setup
     var BV = new $.BigVideo({useFlashForFirefox:false});
-	BV.init();
+    BV.init();
     if (Modernizr.touch) {
-    	// fallback image for mobile devices
-        BV.show('assets/img/bg2.jpg');
+      // fallback image for mobile devices
+      BV.show('assets/img/bg2.jpg');
     } else {
-        BV.show('assets/video/frontier.mp4',
-        {ambient:true, doLoop:true, altSource:'assets/video/frontier.ogv'});
-    }   
-    
-            
-});
+      BV.show('assets/video/frontier.mp4',
+      {ambient:true, doLoop:true, altSource:'assets/video/frontier.ogv'});
+    }
+  });
 </script>
 </body>
 </html>
