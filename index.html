@@ -9,12 +9,10 @@
     <script>window.jQuery || document.write('<script src="assets/js/jquery-1.7.2.min.js"><\/script>')</script>
     <script src="assets/js/jquery-ui-1.8.22.custom.min.js"></script>
     <script src="assets/js/jquery.imagesloaded.min.js"></script>
-    <script src="assets/js/video.js"></script>
     <script src="assets/js/modernizr-2.5.3.min.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/bigvideo.js"></script> 
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="assets/css/main.css" rel="stylesheet">
@@ -38,7 +36,6 @@
           <a class="brand scroller" data-section="html" href="index.html">FRONT ROW</a>
           <div class="nav-collapse collapse">
             <ul class="nav pull-right">
-              <li><a href="#" class="toggle_video">Toggle Video Demo</a></li>
               <li><a href="#" class="scroller" data-section="#about">About</a></li>
               <li><a href="#" class="scroller" data-section="#team">The Team</a></li>
               <li><a href="#" class="scroller" data-section="#contact">Contact us</a></li>
@@ -245,24 +242,6 @@
       $("html, body").animate({ scrollTop: top }, 700);
       return false;
     });
-
-
-    // For the purpose of the demo this allows you to toggle the background between video and img
-    $('.toggle_video').click(function(){
-      $('#big-video-wrap').fadeToggle();
-      return false; 
-    });
-
-    // BigVideo Setup
-    var BV = new $.BigVideo({useFlashForFirefox:false});
-    BV.init();
-    if (Modernizr.touch) {
-      // fallback image for mobile devices
-      BV.show('assets/img/hats.jpg');
-    } else {
-      BV.show('assets/video/frontier.mp4',
-      {ambient:true, doLoop:true, altSource:'assets/video/frontier.ogv'});
-    }
   });
 </script>
 </body>
