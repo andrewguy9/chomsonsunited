@@ -76,6 +76,10 @@ h1 {
 	background:#fff;
 }
 
+#map_place {
+	height: 480px;
+}
+
 #team {
 	background:#000;
 	background:rgba(0,0,0,0.8);
