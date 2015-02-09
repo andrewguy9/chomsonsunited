@@ -145,52 +145,57 @@
   <!-- #contact -->
     <div class="container-fluid" id="contact">
       <div class="container dark">
-        <h1>Get in contact with us</h1>
+        <h1>RSVP</h1>
 
         <div class="span5">
           <form>
             <div class="control-group">
-              <label class="control-label" for="inputName">Name</label>
-              <div class="controls">
-                <input type="text" class="span4" id="inputName" placeholder="Name">
+              <label class="control-label" for="inputName">Attending</label>
+              <div class="controls" >
+                <input type="radio" class="span1" name="attending" value="yes" checked>I'll be there!
+                <br>
+                <input type="radio" class="span1" name="attending" value="no">Oh noes, I can't make it
               </div>
             </div>
             <div class="control-group">
-              <label class="control-label" for="inputEmail">Email</label>
+              <label class="control-label" for="GuestName">Guest Name</label>
               <div class="controls">
-                <input type="text" class="span4" id="inputEmail" placeholder="Email">
+                <input type="text" class="span4" id="GuestName" placeholder="First and Last">
               </div>
             </div>
             <div class="control-group">
-              <label class="control-label" for="inputContact">Message</label>
+              <label class="control-label" for="GuestDietRestrictions">Guest Diet Restrictions</label>
               <div class="controls">
-                <textarea id="inputContact" class="span4"></textarea>
+                <textarea id="GuestDietRestrictions" class="span4"></textarea>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label" for="Plus1Name">Plus One Name</label>
+              <div class="controls">
+                <input type="text" class="span4" id="Plus1Name" placeholder="First and Last">
               </div>
             </div>
             <div class="control-group">
+              <label class="control-label" for="Plus1DietRestrictions">Plus One Diet Restrictions</label>
               <div class="controls">
-                <button type="submit" class="btn btn-purple">Contact Us</button>
+                <textarea id="Plus1DietRestrictions" class="span4"></textarea>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <div class="controls">
+                <button type="submit" class="btn btn-purple">RSVP</button>
               </div>
             </div>
           </form>
         </div>
 
         <div class="span4">
-          <h2>Pop in for a chat</h2>
+          <h2>Thanks for using our RSVP Tool</h2>
 
-          <p>Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit.</p>
+          <p>We are really excited to have you guys attend our special day. Please Place your name below and let us know who else you will be bringing. Also if you have any specific food alergies we should be aware of, please put them into the dietary restrictions boxes.</p>
 
-          <address>
-            <strong>Your Company, Inc.</strong><br>
-            95 Folsom Ave, Suite 600<br>
-            San Francisco, CA 94107<br>
-            <abbr title="Phone">P:</abbr> (123) 456-7890
-          </address>
-
-          <address>
-            <strong>Full Name</strong><br>
-            <a href="mailto:#">first.last@example.com</a>
-          </address>
         </div>
       </div>
     </div>
