@@ -148,7 +148,14 @@
         <h1>RSVP</h1>
 
         <div class="span5">
-          <form id="rsvp" name="rsvp">
+          <form id="rsvp_form" name="rsvp" action="https://chomsonforms.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="key" id="rsvp_key" value="rsvp/test_stuff"> <!-- TODO HACK THIS -->
+            <input type="hidden" name="AWSAccessKeyId" value="AKIAJ4NGYR7BDC7CHQVA">
+            <input type="hidden" name="acl" value="private">
+            <input type="hidden" name="success_action_redirect" value="success.html">
+            <input type="hidden" name="policy" value="eyJleHBpcmF0aW9uIjogIjIwMTYtMDEtMDFUMDA6MDA6MDBaIiwKICAiY29uZGl0aW9ucyI6IFsKICAgIHsiYnVja2V0IjogImNob21zb25mb3JtcyJ9LAogICAgWyJzdGFydHMtd2l0aCIsICIka2V5IiwgInJzdnAvIl0sCiAgICB7ImFjbCI6ICJwcml2YXRlIn0sCiAgICB7InN1Y2Nlc3NfYWN0aW9uX3JlZGlyZWN0IjogInN1Y2Nlc3MuaHRtbCJ9LAogICAgWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsIDAsIDEwNDg1NzZdCiAgXQp9Cg==">
+            <input type="hidden" name="signature" value="AGmvSkZNiH1zSjogqMRDYjr1OBI=">
+            <input id='rsvp_file' name="file" type="hidden">
             <div class="control-group">
               <label class="control-label" for="inputName">Attending</label>
               <div class="controls" >
@@ -185,7 +192,7 @@
 
             <div class="control-group">
               <div class="controls">
-                <button type="submit" name="rsvp_button" class="btn btn-purple">RSVP</button>
+                <button type="submit" id="rsvp_button" class="btn btn-purple">RSVP</button>
               </div>
             </div>
           </form>
@@ -222,6 +229,13 @@
   });
 </script>
 <script type="text/javascript">
+  function uuid() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+      return v.toString(16);
+    });
+  }
+
   function initialize_map() {
     var options = {
       center: new google.maps.LatLng(37.046447,-121.652471),
@@ -255,18 +269,20 @@
     map.mapTypes.set("Watercolor", new google.maps.StamenMapType("watercolor"));
   }
 
-  $("#rsvp").on('submit', function (e) {
+  $("#rsvp_button").on('click', function (e) {
      //ajax call here
      //stop form submission
      e.preventDefault();
      var doc = {};
-     var attending = $('input[name=attending]:checked', '#rsvp').val();
+     var attending = $('input[name=attending]:checked', '#rsvp_form').val();
      doc['attending'] = attending;
      doc['guestname'] = $('#GuestName').val();
      doc['guestdiet'] = $('#GuestDietRestrictions').val();
      doc['plusname'] = $('#Plus1Name').val();
      doc['plusdiet'] = $('#Plus1DietRestrictions').val();
-     alert("i wanna submit this form:" + JSON.stringify(doc));
+     $('#rsvp_file').val(JSON.stringify(doc))
+     $('#rsvp_key').val("rsvp/" + uuid())
+     $('#rsvp_form').submit()
   });
 
 </script>
