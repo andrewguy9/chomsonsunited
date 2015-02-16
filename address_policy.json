@@ -1,0 +1,9 @@
+{"expiration": "2016-01-01T00:00:00Z",
+  "conditions": [
+    {"bucket": "chomsonforms"},
+    ["starts-with", "$key", "address/"],
+    {"acl": "private"},
+    {"success_action_redirect": "success.html"},
+    ["content-length-range", 0, 1048576]
+  ]
+}

@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Chomson's United: Andrew and Jenny are getting married!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Andrew and Jenny are getting married!">
+    <meta name="author" content="Andrew Thomson">
+    <script src="assets/js//jquery-1.7.2.min.js"></script>
+    <script>window.jQuery || document.write('<script src="assets/js/jquery-1.7.2.min.js"><\/script>')</script>
+    <script src="assets/js/jquery-ui-1.8.22.custom.min.js"></script>
+    <script src="assets/js/jquery.imagesloaded.min.js"></script>
+    <script src="assets/js/modernizr-2.5.3.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- IE Fix for HTML5 Tags -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+  <!-- Navbar -->
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand scroller" data-section="html" href="index.html">CHOMSONS UNITED</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav pull-right">
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- end Navbar -->
+
+  <!-- #intro -->
+    <div class="main-container">
+      <div class="container-fluid" id="intro">
+        <div class="container">
+          <div class="row span6 center">
+            <h1>Andrew and Jenny are getting married!</h1>
+            <h2>August 8th 2015<br>6pm Gilroy, CA</h2>
+          </div>
+        </div>
+      </div>
+  <!-- ends Intro -->
+
+  <!-- #address -->
+    <div class="container-fluid" id="address_container">
+      <div class="container dark">
+        <h1>Save the Date</h1>
+
+        <div class="span5">
+          <form id="address_form" name="address" action="https://chomsonforms.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="key" id="address_key" value="address/test_stuff"> <!-- TODO HACK THIS -->
+            <input type="hidden" name="AWSAccessKeyId" value="AKIAJ4NGYR7BDC7CHQVA">
+            <input type="hidden" name="acl" value="private">
+            <input type="hidden" name="success_action_redirect" value="success.html">
+            <input type="hidden" name="policy" value="eyJleHBpcmF0aW9uIjogIjIwMTYtMDEtMDFUMDA6MDA6MDBaIiwKICAiY29uZGl0aW9ucyI6IFsKICAgIHsiYnVja2V0IjogImNob21zb25mb3JtcyJ9LAogICAgWyJzdGFydHMtd2l0aCIsICIka2V5IiwgImFkZHJlc3MvIl0sCiAgICB7ImFjbCI6ICJwcml2YXRlIn0sCiAgICB7InN1Y2Nlc3NfYWN0aW9uX3JlZGlyZWN0IjogInN1Y2Nlc3MuaHRtbCJ9LAogICAgWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsIDAsIDEwNDg1NzZdCiAgXQp9Cg==">
+            <input type="hidden" name="signature" value="TbZUpBJHQdeDdcBYzCU8H31/vJU=">
+            <input id='address_file' name="file" type="hidden">
+            <div class="control-group">
+              <label class="control-label" for="inputName">Attending</label>
+              <div class="controls" >
+                <input type="radio" class="span1" name="attending" id="attending_yes" value="yes" checked>I'll be there!
+                <br>
+                <input type="radio" class="span1" name="attending" id="attending_no" value="no">Oh noes, I can't make it
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="GuestName">Guest Name</label>
+              <div class="controls">
+                <input type="text" class="span4" id="GuestName" placeholder="First and Last">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="GuestDietRestrictions">Guest Diet Restrictions</label>
+              <div class="controls">
+                <textarea id="GuestDietRestrictions" class="span4"></textarea>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label" for="Plus1Name">Plus One Name</label>
+              <div class="controls">
+                <input type="text" class="span4" id="Plus1Name" placeholder="First and Last">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="Plus1DietRestrictions">Plus One Diet Restrictions</label>
+              <div class="controls">
+                <textarea id="Plus1DietRestrictions" class="span4"></textarea>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <div class="controls">
+                <button type="submit" id="address_button" class="btn btn-purple">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="span6">
+          <h2>Mailing Address</h2>
+
+          <p>To help with the invitation addresses, please submit your current mailing address!</p>
+
+        </div>
+      </div>
+    </div>
+  <!-- End address -->
+</div> <!-- end main-container -->
+<script>
+  $(function () {
+    $(window).scroll(function(){
+      // global scroll to top button
+      if ($(this).scrollTop() > 300) {
+        $('.scrolltop').fadeIn();
+      } else {
+        $('.scrolltop').fadeOut();
+      }
+    });
+
+    // scroll nav
+    $('.scroller').click(function(){
+      var section = $($(this).data("section"));
+      var top = section.offset().top-82;
+      $("html, body").animate({ scrollTop: top }, 700);
+      return false;
+    });
+  });
+</script>
+<script type="text/javascript">
+  function uuid() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+      return v.toString(16);
+    });
+  }
+
+  $("#address_button").on('click', function (e) {
+     //ajax call here
+     //stop form submission
+     e.preventDefault();
+     var doc = {};
+     var attending = $('input[name=attending]:checked', '#address_form').val();
+     doc['attending'] = attending;
+     doc['guestname'] = $('#GuestName').val();
+     doc['guestdiet'] = $('#GuestDietRestrictions').val();
+     doc['plusname'] = $('#Plus1Name').val();
+     doc['plusdiet'] = $('#Plus1DietRestrictions').val();
+     $('#address_file').val(JSON.stringify(doc))
+     $('#address_key').val("address/" + uuid())
+     $('#address_form').submit()
+  });
+
+</script>
+</body>
+</html>
