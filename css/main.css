@@ -35,6 +35,15 @@ h1 {
 	margin-bottom:30px;
 }
 
+h2 {
+	font-weight:150;
+	font-size:25px;
+	text-align:center;
+	line-height:55px;
+	text-shadow:0 1px 1px rgba(0,0,0,0.6);
+	margin-bottom:30px;
+}
+
 .dark {
 	color:#fff;
 }
@@ -63,7 +72,7 @@ h1 {
 	padding:0 0 50px;
 }
 
-#intro h1 {
+#intro h1,h2 {
 	color:#fff;
 }
 
@@ -84,7 +93,11 @@ h1 {
 	background:#000;
 	background:rgba(0,0,0,0.8);
 }
-#contact {
+#rsvp_container {
+	background:#202020;
+}
+
+#address_container {
 	background:#202020;
 }
 
