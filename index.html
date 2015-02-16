@@ -148,13 +148,13 @@
         <h1>RSVP</h1>
 
         <div class="span5">
-          <form>
+          <form id="rsvp" name="rsvp">
             <div class="control-group">
               <label class="control-label" for="inputName">Attending</label>
               <div class="controls" >
-                <input type="radio" class="span1" name="attending" value="yes" checked>I'll be there!
+                <input type="radio" class="span1" name="attending" id="attending_yes" value="yes" checked>I'll be there!
                 <br>
-                <input type="radio" class="span1" name="attending" value="no">Oh noes, I can't make it
+                <input type="radio" class="span1" name="attending" id="attending_no" value="no">Oh noes, I can't make it
               </div>
             </div>
             <div class="control-group">
@@ -185,7 +185,7 @@
 
             <div class="control-group">
               <div class="controls">
-                <button type="submit" class="btn btn-purple">RSVP</button>
+                <button type="submit" name="rsvp_button" class="btn btn-purple">RSVP</button>
               </div>
             </div>
           </form>
@@ -254,6 +254,21 @@
     });
     map.mapTypes.set("Watercolor", new google.maps.StamenMapType("watercolor"));
   }
+
+  $("#rsvp").on('submit', function (e) {
+     //ajax call here
+     //stop form submission
+     e.preventDefault();
+     var doc = {};
+     var attending = $('input[name=attending]:checked', '#rsvp').val();
+     doc['attending'] = attending;
+     doc['guestname'] = $('#GuestName').val();
+     doc['guestdiet'] = $('#GuestDietRestrictions').val();
+     doc['plusname'] = $('#Plus1Name').val();
+     doc['plusdiet'] = $('#Plus1DietRestrictions').val();
+     alert("i wanna submit this form:" + JSON.stringify(doc));
+  });
+
 </script>
 </body>
 </html>
