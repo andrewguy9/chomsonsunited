@@ -5,20 +5,15 @@
   </head>
 
   <body>
-    <form action="https://s3-bucket.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
-      <input type="hidden" name="key" value="uploads/${filename}">
-      <input type="hidden" name="AWSAccessKeyId" value="YOUR_AWS_ACCESS_KEY">
+    <form action="https://chomsonforms.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="key" value="rsvp/${filename}">
+      <input type="hidden" name="AWSAccessKeyId" value="AKIAJ4NGYR7BDC7CHQVA">
       <input type="hidden" name="acl" value="private">
-      <input type="hidden" name="success_action_redirect" value="http://localhost/">
-      <input type="hidden" name="policy" value="YOUR_POLICY_DOCUMENT_BASE64_ENCODED">
-      <input type="hidden" name="signature" value="YOUR_CALCULATED_SIGNATURE">
-      <input type="hidden" name="Content-Type" value="image/jpeg">
-      <!-- Include any additional input fields here -->
-
-      File to upload to S3:
-      <input name="file" type="file">
-      <br>
-      <input type="submit" value="Upload File to S3">
+      <input type="hidden" name="success_action_redirect" value="success.html">
+      <input type="hidden" name="policy" value="eyJleHBpcmF0aW9uIjogIjIwMTYtMDEtMDFUMDA6MDA6MDBaIiwKICAiY29uZGl0aW9ucyI6IFsKICAgIHsiYnVja2V0IjogImNob21zb25mb3JtcyJ9LAogICAgWyJzdGFydHMtd2l0aCIsICIka2V5IiwgInJzdnAvIl0sCiAgICB7ImFjbCI6ICJwcml2YXRlIn0sCiAgICB7InN1Y2Nlc3NfYWN0aW9uX3JlZGlyZWN0IjogInN1Y2Nlc3MuaHRtbCJ9LAogICAgWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsIDAsIDEwNDg1NzZdCiAgXQp9Cg==">
+      <input type="hidden" name="signature" value="AGmvSkZNiH1zSjogqMRDYjr1OBI=">
+      <input name="file" type="text">
+      <input type="submit" value="Upload form to S3">
     </form>
   </body>
 </html>
