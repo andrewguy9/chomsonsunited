@@ -70,39 +70,21 @@
             <input type="hidden" name="signature" value="TbZUpBJHQdeDdcBYzCU8H31/vJU=">
             <input id='address_file' name="file" type="hidden">
             <div class="control-group">
-              <label class="control-label" for="inputName">Attending</label>
-              <div class="controls" >
-                <input type="radio" class="span1" name="attending" id="attending_yes" value="yes" checked>I'll be there!
-                <br>
-                <input type="radio" class="span1" name="attending" id="attending_no" value="no">Oh noes, I can't make it
+              <label class="control-label" for="Name">Name</label>
+              <div class="controls">
+                <input type="text" class="span4" id="Name" placeholder="First and Last">
               </div>
             </div>
             <div class="control-group">
-              <label class="control-label" for="GuestName">Guest Name</label>
+              <label class="control-label" for="Address Line 1">Address</label>
               <div class="controls">
-                <input type="text" class="span4" id="GuestName" placeholder="First and Last">
+                <input type='text' id="AddressLine1" class="span4" placeholder="Address Line 1">
+                <input type='text' id="AddressLine2" class="span4" placeholder="Address Line 2">
+                <input type='text' id="City" class="span2" placeholder="City">
+                <input type='text' id="State" class="span1" placeholder="State">
+                <input type='text' id="Zip" class="span1" placeholder="Zip">
               </div>
             </div>
-            <div class="control-group">
-              <label class="control-label" for="GuestDietRestrictions">Guest Diet Restrictions</label>
-              <div class="controls">
-                <textarea id="GuestDietRestrictions" class="span4"></textarea>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <label class="control-label" for="Plus1Name">Plus One Name</label>
-              <div class="controls">
-                <input type="text" class="span4" id="Plus1Name" placeholder="First and Last">
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label" for="Plus1DietRestrictions">Plus One Diet Restrictions</label>
-              <div class="controls">
-                <textarea id="Plus1DietRestrictions" class="span4"></textarea>
-              </div>
-            </div>
-
             <div class="control-group">
               <div class="controls">
                 <button type="submit" id="address_button" class="btn btn-purple">Submit</button>
@@ -155,14 +137,18 @@
      e.preventDefault();
      var doc = {};
      var attending = $('input[name=attending]:checked', '#address_form').val();
-     doc['attending'] = attending;
-     doc['guestname'] = $('#GuestName').val();
-     doc['guestdiet'] = $('#GuestDietRestrictions').val();
-     doc['plusname'] = $('#Plus1Name').val();
-     doc['plusdiet'] = $('#Plus1DietRestrictions').val();
-     $('#address_file').val(JSON.stringify(doc))
-     $('#address_key').val("address/" + uuid())
+     doc['name'] = $('#Name').val();
+     doc['addressline1'] = $('#AddressLine1').val();
+     doc['addressline2'] = $('#AddressLine2').val();
+     doc['city'] = $('#City').val();
+     doc['state'] = $('#State').val();
+     doc['zip'] = $('#Zip').val();
+     doc_str = JSON.stringify(doc)
+     doc_key = "address/" + uuid()
+     $('#address_file').val(doc_str)
+     $('#address_key').val(doc_key)
      $('#address_form').submit()
+     console.log(doc_key + " -> " + doc_str)
   });
 
 </script>
