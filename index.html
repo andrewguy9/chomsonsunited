@@ -128,6 +128,7 @@
               <label class="control-label" for="Name">Name</label>
               <div class="controls">
                 <input type="text" class="span4" id="Name" placeholder="First and Last">
+                <input type="text" class="span4" id="Plus1Name" placeholder="Plus one Name">
               </div>
             </div>
             <div class="control-group">
@@ -227,6 +228,7 @@
      var doc = {};
      var attending = $('input[name=attending]:checked', '#address_form').val();
      doc['name'] = $('#Name').val();
+     doc['plusname'] = $('#Plus1Name').val();
      doc['addressline1'] = $('#AddressLine1').val();
      doc['addressline2'] = $('#AddressLine2').val();
      doc['city'] = $('#City').val();
