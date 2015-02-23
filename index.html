@@ -41,7 +41,6 @@
               <li><a href="#" class="scroller" data-section="#map">Map</a></li>
               <li><a href="#" class="scroller" data-section="#team">The Team</a></li>
               <li><a href="#" class="scroller" data-section="#address_container">Save the Date</a></li>
-              <li><a href="#" class="scroller" data-section="#rsvp_container">RSVP</a></li>
             </ul>
           </div>
         </div>
@@ -56,7 +55,6 @@
           <div class="row span6 center">
             <h1>Andrew and Jenny are getting married!</h1>
             <h2>August 8th 2015<br>6pm Gilroy, CA</h2>
-            <a href="#" data-section="#rsvp_container" class="scroller btn btn-xlarge btn-purple">RSVP</a>
           </div>
         </div>
       </div>
@@ -158,71 +156,6 @@
     </div>
   <!-- End address -->
 
-  <!-- #rsvp -->
-    <div class="container-fluid" id="rsvp_container">
-      <div class="container dark">
-        <h1>RSVP</h1>
-
-        <div class="span5">
-          <form id="rsvp_form" name="rsvp" action="https://chomsonforms.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="key" id="rsvp_key" value="rsvp/test_stuff"> <!-- TODO HACK THIS -->
-            <input type="hidden" name="AWSAccessKeyId" value="AKIAJ4NGYR7BDC7CHQVA">
-            <input type="hidden" name="acl" value="private">
-            <input type="hidden" name="success_action_redirect" value="success.html">
-            <input type="hidden" name="policy" value="eyJleHBpcmF0aW9uIjogIjIwMTYtMDEtMDFUMDA6MDA6MDBaIiwKICAiY29uZGl0aW9ucyI6IFsKICAgIHsiYnVja2V0IjogImNob21zb25mb3JtcyJ9LAogICAgWyJzdGFydHMtd2l0aCIsICIka2V5IiwgInJzdnAvIl0sCiAgICB7ImFjbCI6ICJwcml2YXRlIn0sCiAgICB7InN1Y2Nlc3NfYWN0aW9uX3JlZGlyZWN0IjogInN1Y2Nlc3MuaHRtbCJ9LAogICAgWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsIDAsIDEwNDg1NzZdCiAgXQp9Cg==">
-            <input type="hidden" name="signature" value="AGmvSkZNiH1zSjogqMRDYjr1OBI=">
-            <input id='rsvp_file' name="file" type="hidden">
-            <div class="control-group">
-              <label class="control-label" for="inputName">Attending</label>
-              <div class="controls" >
-                <input type="radio" class="span1" name="attending" id="attending_yes" value="yes" checked>I'll be there!
-                <br>
-                <input type="radio" class="span1" name="attending" id="attending_no" value="no">Oh noes, I can't make it
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label" for="GuestName">Guest Name</label>
-              <div class="controls">
-                <input type="text" class="span4" id="GuestName" placeholder="First and Last">
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label" for="GuestDietRestrictions">Guest Diet Restrictions</label>
-              <div class="controls">
-                <textarea id="GuestDietRestrictions" class="span4"></textarea>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <label class="control-label" for="Plus1Name">Plus One Name</label>
-              <div class="controls">
-                <input type="text" class="span4" id="Plus1Name" placeholder="First and Last">
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label" for="Plus1DietRestrictions">Plus One Diet Restrictions</label>
-              <div class="controls">
-                <textarea id="Plus1DietRestrictions" class="span4"></textarea>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <div class="controls">
-                <button type="submit" id="rsvp_button" class="btn btn-purple">RSVP</button>
-              </div>
-            </div>
-          </form>
-        </div>
-
-        <div class="span4">
-          <h2>Please RSVP</h2>
-
-          <p>We are really excited to have you guys attend our special day. Please Place your name below and let us know who else you will be bringing. Also if you have any specific food alergies we should be aware of, please put them into the dietary restrictions boxes.</p>
-
-        </div>
-      </div>
-    </div>
-  <!-- End rsvp -->
 </div> <!-- end main-container -->
 <script>
   $(function () {
@@ -284,22 +217,6 @@
     });
     map.mapTypes.set("Watercolor", new google.maps.StamenMapType("watercolor"));
   }
-
-  $("#rsvp_button").on('click', function (e) {
-     //ajax call here
-     //stop form submission
-     e.preventDefault();
-     var doc = {};
-     var attending = $('input[name=attending]:checked', '#rsvp_form').val();
-     doc['attending'] = attending;
-     doc['guestname'] = $('#GuestName').val();
-     doc['guestdiet'] = $('#GuestDietRestrictions').val();
-     doc['plusname'] = $('#Plus1Name').val();
-     doc['plusdiet'] = $('#Plus1DietRestrictions').val();
-     $('#rsvp_file').val(JSON.stringify(doc))
-     $('#rsvp_key').val("rsvp/" + uuid())
-     $('#rsvp_form').submit()
-  });
 
   $("#address_button").on('click', function (e) {
      //ajax call here
