@@ -66,43 +66,51 @@
       <div class="container-fluid" id="address_container">
         <div class="container dark">
           <h2>Save the Date</h2>
-
-          <div class="span5">
-            <form id="address_form" name="address" action="https://chomsonforms.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
-              <input type="hidden" name="key" id="address_key" value="address/test_stuff"> <!-- TODO HACK THIS -->
-              <input type="hidden" name="AWSAccessKeyId" value="AKIAJ4NGYR7BDC7CHQVA">
-              <input type="hidden" name="acl" value="private">
-              <input type="hidden" name="success_action_redirect" value="success.html">
-              <input type="hidden" name="policy" value="eyJleHBpcmF0aW9uIjogIjIwMTYtMDEtMDFUMDA6MDA6MDBaIiwKICAiY29uZGl0aW9ucyI6IFsKICAgIHsiYnVja2V0IjogImNob21zb25mb3JtcyJ9LAogICAgWyJzdGFydHMtd2l0aCIsICIka2V5IiwgImFkZHJlc3MvIl0sCiAgICB7ImFjbCI6ICJwcml2YXRlIn0sCiAgICB7InN1Y2Nlc3NfYWN0aW9uX3JlZGlyZWN0IjogInN1Y2Nlc3MuaHRtbCJ9LAogICAgWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsIDAsIDEwNDg1NzZdCiAgXQp9Cg==">
-              <input type="hidden" name="signature" value="TbZUpBJHQdeDdcBYzCU8H31/vJU=">
-              <input id='address_file' name="file" type="hidden">
-              <div class="control-group">
-                <label class="control-label" for="Name">Name(s)</label>
-                <div class="controls">
-                  <input type="text" class="span4" id="Name" placeholder="First and Last">
-                  <input type="text" class="span4" id="Plus1Name" placeholder="Plus One's Name">
-                </div>
-              </div>
-              <div class="control-group">
-                <label class="control-label" for="Address Line 1">Address</label>
-                <div class="controls">
-                  <input type='text' id="AddressLine1" class="span4" placeholder="Address Line 1">
-                  <input type='text' id="AddressLine2" class="span4" placeholder="Address Line 2">
-                  <input type='text' id="City" class="span2" placeholder="City">
-                  <input type='text' id="State" class="span1" placeholder="State">
-                  <input type='text' id="Zip" class="span1" placeholder="Zip">
-                </div>
-              </div>
-              <div class="control-group">
-                <div class="controls">
-                  <button type="submit" id="address_button" class="btn btn-blue">Submit</button>
-                </div>
-              </div>
-            </form>
+          <div id="success_message" class="row" style="display:none;">
+            <div class="span12">
+              <h3>Yay! Thank you~</h3>
+              <p>We'll be sending out invites in the mail soon.</p>
+            </div>
           </div>
 
-          <div class="span6">
-            <p>Alas! We do not know where you live.  To help with the invitation addresses, please submit your current mailing address. Thank you!</p>
+          <div id="address_box" class="row">
+            <div class="span5 offset1">
+              <form id="address_form" name="address" action="https://chomsonforms.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="key" id="address_key" value="address/test_stuff"> <!-- TODO HACK THIS -->
+                <input type="hidden" name="AWSAccessKeyId" value="AKIAJ4NGYR7BDC7CHQVA">
+                <input type="hidden" name="acl" value="private">
+                <input type="hidden" name="success_action_redirect" value="success.html">
+                <input type="hidden" name="policy" value="eyJleHBpcmF0aW9uIjogIjIwMTYtMDEtMDFUMDA6MDA6MDBaIiwKICAiY29uZGl0aW9ucyI6IFsKICAgIHsiYnVja2V0IjogImNob21zb25mb3JtcyJ9LAogICAgWyJzdGFydHMtd2l0aCIsICIka2V5IiwgImFkZHJlc3MvIl0sCiAgICB7ImFjbCI6ICJwcml2YXRlIn0sCiAgICB7InN1Y2Nlc3NfYWN0aW9uX3JlZGlyZWN0IjogInN1Y2Nlc3MuaHRtbCJ9LAogICAgWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsIDAsIDEwNDg1NzZdCiAgXQp9Cg==">
+                <input type="hidden" name="signature" value="TbZUpBJHQdeDdcBYzCU8H31/vJU=">
+                <input id='address_file' name="file" type="hidden">
+                <div class="control-group">
+                  <label class="control-label" for="Name">Name(s)</label>
+                  <div class="controls">
+                    <input type="text" class="span4" id="Name" placeholder="First and Last">
+                    <input type="text" class="span4" id="Plus1Name" placeholder="Plus One's Name">
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label" for="Address Line 1">Address</label>
+                  <div class="controls">
+                    <input type='text' id="AddressLine1" class="span4" placeholder="Address Line 1">
+                    <input type='text' id="AddressLine2" class="span4" placeholder="Address Line 2">
+                    <input type='text' id="City" class="span2" placeholder="City">
+                    <input type='text' id="State" class="span1" placeholder="State">
+                    <input type='text' id="Zip" class="span1" placeholder="Zip">
+                  </div>
+                </div>
+                <div class="control-group">
+                  <div class="controls">
+                    <button type="submit" id="address_button" class="btn btn-blue">Submit</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="span5">
+              <p>Alas! We do not know where you live.  To help with the invitation addresses, please submit your current mailing address. Thank you!</p>
+            </div>
           </div>
         </div>
       </div>
@@ -238,6 +246,8 @@
         $('#address_file').val(doc_str)
         $('#address_key').val(doc_key)
         $('#address_form').submit()
+        $('#address_box').hide("blind");
+        $('#success_message').show("blind");
         console.log(doc_key + " -> " + doc_str)
       });
 
