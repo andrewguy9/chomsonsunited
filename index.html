@@ -221,24 +221,24 @@
       }
 
       $("#address_button").on('click', function (e) {
-         //ajax call here
-         //stop form submission
-         e.preventDefault();
-         var doc = {};
-         var attending = $('input[name=attending]:checked', '#address_form').val();
-         doc['name'] = $('#Name').val();
-         doc['plusname'] = $('#Plus1Name').val();
-         doc['addressline1'] = $('#AddressLine1').val();
-         doc['addressline2'] = $('#AddressLine2').val();
-         doc['city'] = $('#City').val();
-         doc['state'] = $('#State').val();
-         doc['zip'] = $('#Zip').val();
-         doc_str = JSON.stringify(doc)
-         doc_key = "address/" + uuid()
-         $('#address_file').val(doc_str)
-         $('#address_key').val(doc_key)
-         $('#address_form').submit()
-         console.log(doc_key + " -> " + doc_str)
+        //ajax call here
+        //stop form submission
+        e.preventDefault();
+        var doc = {};
+        var attending = $('input[name=attending]:checked', '#address_form').val();
+        doc['name'] = $('#Name').val();
+        doc['plusname'] = $('#Plus1Name').val();
+        doc['addressline1'] = $('#AddressLine1').val();
+        doc['addressline2'] = $('#AddressLine2').val();
+        doc['city'] = $('#City').val();
+        doc['state'] = $('#State').val();
+        doc['zip'] = $('#Zip').val();
+        doc_str = JSON.stringify(doc)
+        doc_key = "address/" + uuid()
+        $('#address_file').val(doc_str)
+        $('#address_key').val(doc_key)
+        $('#address_form').submit()
+        console.log(doc_key + " -> " + doc_str)
       });
 
     </script>
