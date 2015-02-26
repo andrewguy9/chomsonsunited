@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-<head>
+  <head>
     <title>Chomson's United: Andrew and Jenny are getting married!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Andrew and Jenny are getting married!">
@@ -19,14 +19,14 @@
     <link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- IE Fix for HTML5 Tags -->
-  <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-</head>
-<body onload="initialize_map()">
+    <!-- IE Fix for HTML5 Tags -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body onload="initialize_map()">
 
-  <!-- Navbar -->
+    <!-- Navbar -->
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -46,10 +46,12 @@
         </div>
       </div>
     </div>
-  <!-- end Navbar -->
+    <!-- end Navbar -->
 
-  <!-- #intro -->
+    <!-- #main-container -->
     <div class="main-container">
+
+      <!-- #intro -->
       <div class="container-fluid" id="intro">
         <div class="container">
           <div class="row span6 center">
@@ -58,187 +60,187 @@
           </div>
         </div>
       </div>
-  <!-- ends Intro -->
+      <!-- ends Intro -->
 
-  <!-- #address -->
-    <div class="container-fluid" id="address_container">
-      <div class="container dark">
-        <h1>Save the Date</h1>
+      <!-- #address -->
+      <div class="container-fluid" id="address_container">
+        <div class="container dark">
+          <h1>Save the Date</h1>
 
-        <div class="span5">
-          <form id="address_form" name="address" action="https://chomsonforms.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="key" id="address_key" value="address/test_stuff"> <!-- TODO HACK THIS -->
-            <input type="hidden" name="AWSAccessKeyId" value="AKIAJ4NGYR7BDC7CHQVA">
-            <input type="hidden" name="acl" value="private">
-            <input type="hidden" name="success_action_redirect" value="success.html">
-            <input type="hidden" name="policy" value="eyJleHBpcmF0aW9uIjogIjIwMTYtMDEtMDFUMDA6MDA6MDBaIiwKICAiY29uZGl0aW9ucyI6IFsKICAgIHsiYnVja2V0IjogImNob21zb25mb3JtcyJ9LAogICAgWyJzdGFydHMtd2l0aCIsICIka2V5IiwgImFkZHJlc3MvIl0sCiAgICB7ImFjbCI6ICJwcml2YXRlIn0sCiAgICB7InN1Y2Nlc3NfYWN0aW9uX3JlZGlyZWN0IjogInN1Y2Nlc3MuaHRtbCJ9LAogICAgWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsIDAsIDEwNDg1NzZdCiAgXQp9Cg==">
-            <input type="hidden" name="signature" value="TbZUpBJHQdeDdcBYzCU8H31/vJU=">
-            <input id='address_file' name="file" type="hidden">
-            <div class="control-group">
-              <label class="control-label" for="Name">Name(s)</label>
-              <div class="controls">
-                <input type="text" class="span4" id="Name" placeholder="First and Last">
-                <input type="text" class="span4" id="Plus1Name" placeholder="Plus One's Name">
+          <div class="span5">
+            <form id="address_form" name="address" action="https://chomsonforms.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
+              <input type="hidden" name="key" id="address_key" value="address/test_stuff"> <!-- TODO HACK THIS -->
+              <input type="hidden" name="AWSAccessKeyId" value="AKIAJ4NGYR7BDC7CHQVA">
+              <input type="hidden" name="acl" value="private">
+              <input type="hidden" name="success_action_redirect" value="success.html">
+              <input type="hidden" name="policy" value="eyJleHBpcmF0aW9uIjogIjIwMTYtMDEtMDFUMDA6MDA6MDBaIiwKICAiY29uZGl0aW9ucyI6IFsKICAgIHsiYnVja2V0IjogImNob21zb25mb3JtcyJ9LAogICAgWyJzdGFydHMtd2l0aCIsICIka2V5IiwgImFkZHJlc3MvIl0sCiAgICB7ImFjbCI6ICJwcml2YXRlIn0sCiAgICB7InN1Y2Nlc3NfYWN0aW9uX3JlZGlyZWN0IjogInN1Y2Nlc3MuaHRtbCJ9LAogICAgWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsIDAsIDEwNDg1NzZdCiAgXQp9Cg==">
+              <input type="hidden" name="signature" value="TbZUpBJHQdeDdcBYzCU8H31/vJU=">
+              <input id='address_file' name="file" type="hidden">
+              <div class="control-group">
+                <label class="control-label" for="Name">Name(s)</label>
+                <div class="controls">
+                  <input type="text" class="span4" id="Name" placeholder="First and Last">
+                  <input type="text" class="span4" id="Plus1Name" placeholder="Plus One's Name">
+                </div>
               </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label" for="Address Line 1">Address</label>
-              <div class="controls">
-                <input type='text' id="AddressLine1" class="span4" placeholder="Address Line 1">
-                <input type='text' id="AddressLine2" class="span4" placeholder="Address Line 2">
-                <input type='text' id="City" class="span2" placeholder="City">
-                <input type='text' id="State" class="span1" placeholder="State">
-                <input type='text' id="Zip" class="span1" placeholder="Zip">
+              <div class="control-group">
+                <label class="control-label" for="Address Line 1">Address</label>
+                <div class="controls">
+                  <input type='text' id="AddressLine1" class="span4" placeholder="Address Line 1">
+                  <input type='text' id="AddressLine2" class="span4" placeholder="Address Line 2">
+                  <input type='text' id="City" class="span2" placeholder="City">
+                  <input type='text' id="State" class="span1" placeholder="State">
+                  <input type='text' id="Zip" class="span1" placeholder="Zip">
+                </div>
               </div>
-            </div>
-            <div class="control-group">
-              <div class="controls">
-                <button type="submit" id="address_button" class="btn btn-blue">Submit</button>
+              <div class="control-group">
+                <div class="controls">
+                  <button type="submit" id="address_button" class="btn btn-blue">Submit</button>
+                </div>
               </div>
-            </div>
-          </form>
-        </div>
+            </form>
+          </div>
 
-        <div class="span6">
-          <p>Alas! We do not know where you live.  To help with the invitation addresses, please submit your current mailing address. Thank you!</p>
-
-        </div>
-      </div>
-    </div>
-  <!-- End address -->
-
-  <!-- #map -->
-    <div class="container-fluid" id="map">
-      <div class="container light">
-        <h1>Map</h1>
-        <div class="span8" id="map_place"></div>
-        <div class="span2">
-          <a href="https://www.google.com/maps/dir/''/kirigin+cellars/@37.0464421,-121.6868038,13z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x808e1fb5e2aac787:0xa231c87dc88b5869!2m2!1d-121.652471!2d37.046447"><h3>Directions</h3>Kirigin Cellars<br>11550 Watsonville Road, Gilroy, CA 95020</a>
-          <br><br>
-          (408) 847-8827
+          <div class="span6">
+            <p>Alas! We do not know where you live.  To help with the invitation addresses, please submit your current mailing address. Thank you!</p>
+          </div>
         </div>
       </div>
-    </div>
-  <!-- ends map-->
+      <!-- End address -->
 
-  <!-- #team -->
-    <div class="container-fluid" id="team">
-      <div class="container dark">
-        <h1>Meet the team</h1>
-        <ul class="thumbnails">
-
-          <li class="span4">
-            <div class="thumbnail">
-              <img alt="" src="assets/img/andrew_yellow.jpg">
-              <h3>Andrew</h3>
-              <p>The Hacker</p>
-            </div>
-          </li>
-
-          <li class="span4">
-            <div class="thumbnail">
-              <img alt="" src="assets/img/ramen_cool.jpg">
-              <h3>Ramen</h3>
-              <p>The Mastermind</p>
-            </div>
-          </li>
-
-          <li class="span4">
-            <div class="thumbnail">
-              <img alt="" src="assets/img/jenny_yellow.jpg">
-              <h3>Jenny</h3>
-              <p>The Muscle</p>
-            </div>
-          </li>
-
-        </ul>
+      <!-- #map -->
+      <div class="container-fluid" id="map">
+        <div class="container light">
+          <h1>Map</h1>
+          <div class="span8" id="map_place"></div>
+          <div class="span2">
+            <a href="https://www.google.com/maps/dir/''/kirigin+cellars/@37.0464421,-121.6868038,13z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x808e1fb5e2aac787:0xa231c87dc88b5869!2m2!1d-121.652471!2d37.046447"><h3>Directions</h3>Kirigin Cellars<br>11550 Watsonville Road, Gilroy, CA 95020</a>
+            <br><br>
+            (408) 847-8827
+          </div>
+        </div>
       </div>
-    </div>
-  <!-- End Team -->
+      <!-- ends map-->
 
-</div> <!-- end main-container -->
-<script>
-  $(function () {
-    $(window).scroll(function(){
-      // global scroll to top button
-      if ($(this).scrollTop() > 300) {
-        $('.scrolltop').fadeIn();
-      } else {
-        $('.scrolltop').fadeOut();
-      }
-    });
+      <!-- #team -->
+      <div class="container-fluid" id="team">
+        <div class="container dark">
+          <h1>Meet the team</h1>
+          <ul class="thumbnails">
 
-    // scroll nav
-    $('.scroller').click(function(){
-      var section = $($(this).data("section"));
-      var top = section.offset().top-82;
-      $("html, body").animate({ scrollTop: top }, 700);
-      return false;
-    });
-  });
-</script>
-<script type="text/javascript">
-  function uuid() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-      var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
-      return v.toString(16);
-    });
-  }
+            <li class="span4">
+              <div class="thumbnail">
+                <img alt="" src="assets/img/andrew_yellow.jpg">
+                <h3>Andrew</h3>
+                <p>The Hacker</p>
+              </div>
+            </li>
 
-  function initialize_map() {
-    var options = {
-      center: new google.maps.LatLng(37.046447,-121.652471),
-      zoom: 12,
-      mapTypeId: "Watercolor",
-      mapTypeControlOptions: {
-        mapTypeIds: ["Watercolor", google.maps.MapTypeId.ROADMAP,]
-      },
-      panControl: false,
-      zoomControl: false,
-      mapTypeControl: true,
-      scaleControl: false,
-      streetViewControl: false,
-      overviewMapControl: false,
-      scrollwheel: false,
-    };
-    var map = new google.maps.Map(document.getElementById("map_place"), options);
-    var address = "Kirigin Cellars, Watsonville Road, Gilroy, CA";
-    var geocoder = new google.maps.Geocoder();
-    geocoder.geocode( { 'address': address}, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-        map.setCenter(results[0].geometry.location);
-        var marker = new google.maps.Marker({
-            map: map,
-            position: results[0].geometry.location
+            <li class="span4">
+              <div class="thumbnail">
+                <img alt="" src="assets/img/ramen_cool.jpg">
+                <h3>Ramen</h3>
+                <p>The Mastermind</p>
+              </div>
+            </li>
+
+            <li class="span4">
+              <div class="thumbnail">
+                <img alt="" src="assets/img/jenny_yellow.jpg">
+                <h3>Jenny</h3>
+                <p>The Muscle</p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+      <!-- End Team -->
+
+    </div> <!-- end main-container -->
+
+    <script>
+      $(function () {
+        $(window).scroll(function(){
+          // global scroll to top button
+          if ($(this).scrollTop() > 300) {
+            $('.scrolltop').fadeIn();
+          } else {
+            $('.scrolltop').fadeOut();
+          }
         });
-      } else {
-        alert('Geocode was not successful for the following reason: ' + status);
+
+        // scroll nav
+        $('.scroller').click(function(){
+          var section = $($(this).data("section"));
+          var top = section.offset().top-82;
+          $("html, body").animate({ scrollTop: top }, 700);
+          return false;
+        });
+      });
+    </script>
+    <script type="text/javascript">
+      function uuid() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+          var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+          return v.toString(16);
+        });
       }
-    });
-    map.mapTypes.set("Watercolor", new google.maps.StamenMapType("watercolor"));
-  }
 
-  $("#address_button").on('click', function (e) {
-     //ajax call here
-     //stop form submission
-     e.preventDefault();
-     var doc = {};
-     var attending = $('input[name=attending]:checked', '#address_form').val();
-     doc['name'] = $('#Name').val();
-     doc['plusname'] = $('#Plus1Name').val();
-     doc['addressline1'] = $('#AddressLine1').val();
-     doc['addressline2'] = $('#AddressLine2').val();
-     doc['city'] = $('#City').val();
-     doc['state'] = $('#State').val();
-     doc['zip'] = $('#Zip').val();
-     doc_str = JSON.stringify(doc)
-     doc_key = "address/" + uuid()
-     $('#address_file').val(doc_str)
-     $('#address_key').val(doc_key)
-     $('#address_form').submit()
-     console.log(doc_key + " -> " + doc_str)
-  });
+      function initialize_map() {
+        var options = {
+          center: new google.maps.LatLng(37.046447,-121.652471),
+          zoom: 12,
+          mapTypeId: "Watercolor",
+          mapTypeControlOptions: {
+            mapTypeIds: ["Watercolor", google.maps.MapTypeId.ROADMAP,]
+          },
+          panControl: false,
+          zoomControl: false,
+          mapTypeControl: true,
+          scaleControl: false,
+          streetViewControl: false,
+          overviewMapControl: false,
+          scrollwheel: false,
+        };
+        var map = new google.maps.Map(document.getElementById("map_place"), options);
+        var address = "Kirigin Cellars, Watsonville Road, Gilroy, CA";
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode( { 'address': address}, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            map.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+                map: map,
+                position: results[0].geometry.location
+            });
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+        map.mapTypes.set("Watercolor", new google.maps.StamenMapType("watercolor"));
+      }
 
-</script>
-</body>
+      $("#address_button").on('click', function (e) {
+         //ajax call here
+         //stop form submission
+         e.preventDefault();
+         var doc = {};
+         var attending = $('input[name=attending]:checked', '#address_form').val();
+         doc['name'] = $('#Name').val();
+         doc['plusname'] = $('#Plus1Name').val();
+         doc['addressline1'] = $('#AddressLine1').val();
+         doc['addressline2'] = $('#AddressLine2').val();
+         doc['city'] = $('#City').val();
+         doc['state'] = $('#State').val();
+         doc['zip'] = $('#Zip').val();
+         doc_str = JSON.stringify(doc)
+         doc_key = "address/" + uuid()
+         $('#address_file').val(doc_str)
+         $('#address_key').val(doc_key)
+         $('#address_form').submit()
+         console.log(doc_key + " -> " + doc_str)
+      });
+
+    </script>
+  </body>
 </html>
