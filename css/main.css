@@ -163,7 +163,7 @@ h2 {
 }
 
 .navbar .nav li a:hover,.navbar .nav li a:focus{
-  color:#F8F8F8;  
+  color:#F8F8F8;
 }
 
 .navbar .nav > li > a:hover {
@@ -259,21 +259,21 @@ h2 {
   .nav-collapse .nav > li > a:hover,.nav-collapse .dropdown-menu a:hover {
     background:none!important;
   }
-  
+
   .nav-collapse .nav > li > a,.nav-collapse .dropdown-menu a {
     color:#ccc;
   }
-  
+
   .navbar .brand {
     padding:8px 0 0 40px;
   }
-  
+
   body {
     padding-right:0;
     padding-left:0;
     background-size:250%;
   }
-  
+
   #intro {
   margin-top:45px;
   }
@@ -285,7 +285,6 @@ h2 {
     padding-left:0;
     background-size:330%;
   }
-  
 }
 
 @media (max-width: 480px) {
