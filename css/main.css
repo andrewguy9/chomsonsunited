@@ -85,6 +85,11 @@ h2 {
 	background:#fff;
 }
 
+#map h2 {
+	color:#333;
+}
+
+
 #map_place {
 	height: 480px;
 }
@@ -93,12 +98,21 @@ h2 {
 	background:#000;
 	background:rgba(0,0,0,0.8);
 }
+
+#team h2 {
+	color:#fff;
+}
+
 #rsvp_container {
 	background:#202020;
 }
 
 #address_container {
 	background:#202020;
+}
+
+#address_container h2 {
+	color:#fff;
 }
 
 
