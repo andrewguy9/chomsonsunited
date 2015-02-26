@@ -4,7 +4,7 @@
 body {
   /* Change the background image here  */
   background: url('../img/beach2.jpg') #000 top left fixed no-repeat;
-  background-size:100%;
+  background-size: auto;
   font-family:'Open Sans',sans-serif;
 }
 
@@ -271,7 +271,6 @@ h2 {
   body {
     padding-right:0;
     padding-left:0;
-    background-size:250%;
   }
 
   #intro {
@@ -283,13 +282,12 @@ h2 {
   body {
     padding-right:0;
     padding-left:0;
-    background-size:330%;
   }
 }
 
 @media (max-width: 480px) {
   body {
-    background-size:420%;
+    background-size: 350%;
   }
 
 }
