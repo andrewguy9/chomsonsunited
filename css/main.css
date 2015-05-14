@@ -338,6 +338,11 @@ h2 {
   border-radius:5px;
 }
 
+.remove_button {
+  margin-left: 10px;
+  margin-top: -10px;
+}
+
 /*  Team Social Icon Styles */
 
 .social{
