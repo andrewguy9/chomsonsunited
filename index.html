@@ -259,9 +259,11 @@
           doc['attending'] = 'false';
         }
 
+        doc['names'] = []
+
         $('.guest_name').each(function () {
           id = $(this).attr('id');
-          doc[id] = $('#' + id).val();
+          doc['names'].push($('#' + id).val());
         });
 
         doc['diet_restrictions'] = $('#diet_restrictions').val();
