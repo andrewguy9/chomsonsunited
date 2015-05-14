@@ -258,6 +258,11 @@ h2 {
         height:200px;
 }
 
+.remove_button {
+  margin-left: 10px;
+  margin-top: -10px;
+}
+
 @media (max-width: 979px) {
 
   .nav-collapse .nav > li > a:hover,.nav-collapse .dropdown-menu a:hover {
@@ -287,13 +292,22 @@ h2 {
     padding-right:0;
     padding-left:0;
   }
+
+  .remove_button {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    margin-left: -1px;
+  }
+
+  .remove_button:after {
+    content: " Remove guest";
+  }
 }
 
 @media (max-width: 480px) {
   body {
     background-size: 350%;
   }
-
 }
 
 .btn-blue {
@@ -338,10 +352,7 @@ h2 {
   border-radius:5px;
 }
 
-.remove_button {
-  margin-left: 10px;
-  margin-top: -10px;
-}
+
 
 .slider_selected {
   color: #1660bb;

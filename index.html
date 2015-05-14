@@ -96,7 +96,7 @@
                   <label class="control-label" for="name1">Name(s)</label>
                   <div class="controls">
                     <input type="text" class="span6 guest_name" id="name1" placeholder="First and Last"></br>
-                    <button type="add" id="add_button" class="btn btn-peach" data-num-guests=1>Add guest</button>
+                    <button type="add" id="add_button" class="btn btn-peach" data-num-guests=1>+ Add guest</button>
                   </div>
                 </div>
                 <div class="control-group">
@@ -288,6 +288,7 @@
 
       function loadRemoveButton() {
         $('.remove_button').on('click', function (e) {
+          e.preventDefault();
           row = "#" + $(this).data('row-id')
           $(row).remove();
         });
