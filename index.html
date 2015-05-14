@@ -87,7 +87,13 @@
                 <div class="control-group">
                   <label class="control-label" for="Name">Name(s)</label>
                   <div class="controls">
-                    <input type="text" class="span4" id="Name" placeholder="First and Last">
+                    <input type="text" class="span4" id="name1" placeholder="First and Last"></br>
+                    <button type="add" id="add_button" class="btn btn-peach">Add guest</button>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <div class="controls">
+                    <textarea id="diet_restrictions" placeholder="Please enter dietary restrictions here." rows="3" class="span4"></textarea>
                   </div>
                 </div>
                 <div class="control-group">
@@ -223,7 +229,8 @@
         //stop form submission
         e.preventDefault();
         var doc = {};
-        doc['name'] = $('#Name').val();
+        doc['name1'] = $('#name1').val();
+        doc['diet_restrictions'] = $('#diet_restrictions').val();
         doc_str = JSON.stringify(doc)
         doc_key = "rsvp/" + uuid()
         $('#rsvp_file').val(doc_str)
