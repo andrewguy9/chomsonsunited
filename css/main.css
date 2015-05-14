@@ -343,6 +343,31 @@ h2 {
   margin-top: -10px;
 }
 
+.slider_selected {
+  color: #1660bb;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.slider_notselected {
+  color: gray;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+
+.ui-widget-content {
+  background: #ffffff/*{bgColorContent}*/ 50%/*{bgContentXPos}*/ 50%/*{bgContentYPos}*/ repeat-x/*{bgContentRepeat}*/;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+  background: #e6e6e6/*{bgColorDefault}*/ 50%/*{bgDefaultXPos}*/ 50%/*{bgDefaultYPos}*/ repeat-x/*{bgDefaultRepeat}*/;
+}
+
+.ui-slider {
+  margin-top: 3px;
+  margin-bottom: 10px;
+}
+
 /*  Team Social Icon Styles */
 
 .social{
