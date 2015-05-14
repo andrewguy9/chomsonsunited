@@ -38,7 +38,7 @@
           <a class="brand scroller" data-section="html" href="index.html">CHOMSONS UNITED</a>
           <div class="nav-collapse collapse">
             <ul class="nav pull-right">
-              <li><a href="#" class="scroller" data-section="#address_container">Save the Date</a></li>
+              <li><a href="#" class="scroller" data-section="#address_container">RSVP</a></li>
               <li><a href="#" class="scroller" data-section="#map">Map</a></li>
               <li><a href="#" class="scroller" data-section="#team">The Team</a></li>
             </ul>
@@ -64,59 +64,47 @@
       </div>
       <!-- ends Intro -->
 
-      <!-- #address -->
+      <!-- #rsvp -->
       <div class="container-fluid" id="address_container">
         <div class="container dark">
-          <h2>Save the Date</h2>
+          <h2>RSVP</h2>
           <div id="success_message" class="row" style="display:none;">
             <div class="span12">
-              <h3>Yay! Thank you~</h3>
-              <p>We'll be sending out invites in the mail soon.</p>
+              <h3>Yay! Thank you</h3>
             </div>
           </div>
 
-          <div id="address_box" class="row">
+          <div id="rsvp_box" class="row">
             <div class="span5 offset1">
-              <form id="address_form" name="address" action="https://chomsonforms.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="key" id="address_key" value="address/test_stuff"> <!-- TODO HACK THIS -->
+              <form id="rsvp_form" name="rsvp" action="https://chomsonforms.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="key" id="rsvp_key" value="rsvp/test_stuff"> <!-- TODO HACK THIS -->
                 <input type="hidden" name="AWSAccessKeyId" value="AKIAJ4NGYR7BDC7CHQVA">
                 <input type="hidden" name="acl" value="private">
                 <input type="hidden" name="success_action_redirect" value="success.html">
-                <input type="hidden" name="policy" value="eyJleHBpcmF0aW9uIjogIjIwMTYtMDEtMDFUMDA6MDA6MDBaIiwKICAiY29uZGl0aW9ucyI6IFsKICAgIHsiYnVja2V0IjogImNob21zb25mb3JtcyJ9LAogICAgWyJzdGFydHMtd2l0aCIsICIka2V5IiwgImFkZHJlc3MvIl0sCiAgICB7ImFjbCI6ICJwcml2YXRlIn0sCiAgICB7InN1Y2Nlc3NfYWN0aW9uX3JlZGlyZWN0IjogInN1Y2Nlc3MuaHRtbCJ9LAogICAgWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsIDAsIDEwNDg1NzZdCiAgXQp9Cg==">
-                <input type="hidden" name="signature" value="TbZUpBJHQdeDdcBYzCU8H31/vJU=">
-                <input id='address_file' name="file" type="hidden">
+                <input type="hidden" name="policy" value="eyJleHBpcmF0aW9uIjogIjIwMTYtMDEtMDFUMDA6MDA6MDBaIiwKICAiY29uZGl0aW9ucyI6IFsKICAgIHsiYnVja2V0IjogImNob21zb25mb3JtcyJ9LAogICAgWyJzdGFydHMtd2l0aCIsICIka2V5IiwgInJzdnAvIl0sCiAgICB7ImFjbCI6ICJwcml2YXRlIn0sCiAgICB7InN1Y2Nlc3NfYWN0aW9uX3JlZGlyZWN0IjogInN1Y2Nlc3MuaHRtbCJ9LAogICAgWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsIDAsIDEwNDg1NzZdCiAgXQp9Cg==">
+                <input type="hidden" name="signature" value="AGmvSkZNiH1zSjogqMRDYjr1OBI=">
+                <input id='rsvp_file' name="file" type="hidden">
                 <div class="control-group">
                   <label class="control-label" for="Name">Name(s)</label>
                   <div class="controls">
                     <input type="text" class="span4" id="Name" placeholder="First and Last">
-                    <input type="text" class="span4" id="Plus1Name" placeholder="Plus One's Name">
-                  </div>
-                </div>
-                <div class="control-group">
-                  <label class="control-label" for="Address Line 1">Address</label>
-                  <div class="controls">
-                    <input type='text' id="AddressLine1" class="span4" placeholder="Address Line 1">
-                    <input type='text' id="AddressLine2" class="span4" placeholder="Address Line 2">
-                    <input type='text' id="City" class="span2" placeholder="City">
-                    <input type='text' id="State" class="span1" placeholder="State">
-                    <input type='text' id="Zip" class="span1" placeholder="Zip">
                   </div>
                 </div>
                 <div class="control-group">
                   <div class="controls">
-                    <button type="submit" id="address_button" class="btn btn-blue">Submit</button>
+                    <button type="submit" id="rsvp_button" class="btn btn-blue">Submit</button>
                   </div>
                 </div>
               </form>
             </div>
 
             <div class="span5">
-              <p>Alas! We do not know where you live.  To help with the invitation addresses, please submit your current mailing address. Thank you!</p>
+              <p>Please let us know if you are coming! Thank you!</p>
             </div>
           </div>
         </div>
       </div>
-      <!-- End address -->
+      <!-- End rsvp -->
 
       <!-- #map -->
       <div class="container-fluid" id="map">
@@ -230,25 +218,18 @@
         map.mapTypes.set("Watercolor", new google.maps.StamenMapType("watercolor"));
       }
 
-      $("#address_button").on('click', function (e) {
+      $("#rsvp_button").on('click', function (e) {
         //ajax call here
         //stop form submission
         e.preventDefault();
         var doc = {};
-        var attending = $('input[name=attending]:checked', '#address_form').val();
         doc['name'] = $('#Name').val();
-        doc['plusname'] = $('#Plus1Name').val();
-        doc['addressline1'] = $('#AddressLine1').val();
-        doc['addressline2'] = $('#AddressLine2').val();
-        doc['city'] = $('#City').val();
-        doc['state'] = $('#State').val();
-        doc['zip'] = $('#Zip').val();
         doc_str = JSON.stringify(doc)
-        doc_key = "address/" + uuid()
-        $('#address_file').val(doc_str)
-        $('#address_key').val(doc_key)
-        $('#address_form').submit()
-        $('#address_box').hide("blind");
+        doc_key = "rsvp/" + uuid()
+        $('#rsvp_file').val(doc_str)
+        $('#rsvp_key').val(doc_key)
+        $('#rsvp_form').submit()
+        $('#rsvp_box').hide("blind");
         $('#success_message').show("blind");
         console.log(doc_key + " -> " + doc_str)
       });
