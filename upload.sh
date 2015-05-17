@@ -1,3 +1,6 @@
 #!/bin/bash
 
-s3cmd -P -F sync ~/Projects/chomsonsunited/site s3://chomsonsunited
+pushd ../site
+s3cmd -f -P -F --cf-invalidate --cf-invalidate-default-index sync * s3://chomsonsunited
+popd
+repeat --until-success --period 30 -- ./cfdone.sh
