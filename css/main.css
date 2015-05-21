@@ -51,6 +51,10 @@ h2 {
   margin:0 auto;
 }
 
+.center-text {
+  text-align:center;
+}
+
 /* Main Container Styles  */
 
 .main-container {
@@ -93,8 +97,7 @@ h2 {
 }
 
 #team {
-  background:#000;
-  background:rgba(0,0,0,0.8);
+  background:#202020;
 }
 
 #team h2 {
@@ -112,6 +115,15 @@ h2 {
 #address_container h2 {
   color:#fff;
 }
+
+#accommodations {
+  background:#fff;
+}
+
+#accommodations h2 {
+  color:#333;
+}
+
 
 #success_message {
   text-align:center;
