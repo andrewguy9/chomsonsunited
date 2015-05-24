@@ -265,66 +265,6 @@
         map.mapTypes.set("Watercolor", new google.maps.StamenMapType("watercolor"));
       }
 
-      $('#attending').addClass('slider_selected');
-      $('#not_attending').addClass('slider_notselected');
-      $('#slider').slider({
-        max: 1,
-        min: 0,
-        change: function(event, ui) {
-          value = $(this).slider("value")
-          $('#attending').toggleClass('slider_selected');
-          $('#attending').toggleClass('slider_notselected');
-          $('#not_attending').toggleClass('slider_selected');
-          $('#not_attending').toggleClass('slider_notselected');
-        }
-      });
-      $('#attending').on('click', function () {
-        $('#slider').slider("value", 0);
-      });
-      $('#not_attending').on('click', function () {
-        $('#slider').slider("value", 1);
-      });
-
-      $('#rsvp_button').on('click', function (e) {
-        e.preventDefault();
-        var doc = {};
-
-        slider_value = $('#slider').slider('value')
-        if (slider_value == 0) {
-          doc['attending'] = 'true';
-        } else {
-          doc['attending'] = 'false';
-        }
-
-        doc['names'] = []
-
-        $('.guest_name').each(function () {
-          id = $(this).attr('id');
-          doc['names'].push($('#' + id).val());
-        });
-
-        doc['diet_restrictions'] = $('#diet_restrictions').val();
-        doc_str = JSON.stringify(doc)
-        doc_key = "rsvp/" + uuid()
-        $('#rsvp_file').val(doc_str)
-        $('#rsvp_key').val(doc_key)
-        $('#rsvp_form').submit()
-        $('#rsvp_box').hide("blind");
-        $('#success_message').show("blind");
-        console.log(doc_key + " -> " + doc_str)
-      });
-
-      $('#add_button').on('click', function (e) {
-        e.preventDefault();
-        num_guests = $(this).data('num-guests') + 1
-        new_guest = "<span id='name_row" + num_guests.toString() + "'>" +
-        "<input type='text' class='span6 guest_name' id='name" + num_guests.toString() + "' placeholder='First and Last'>" +
-        "<button type='button' class='btn btn-peach remove_button' data-row-id='name_row" + num_guests.toString() + "'>-</button><br/></span>"
-        $(this).before(new_guest)
-        $(this).data('num-guests', num_guests)
-        loadRemoveButton();
-      });
-
       function loadRemoveButton() {
         $('.remove_button').on('click', function (e) {
           e.preventDefault();
@@ -333,6 +273,70 @@
         });
       }
 
+      $(document).ready(function() {
+        $('#attending').addClass('slider_selected');
+        $('#not_attending').addClass('slider_notselected');
+        $('#slider').slider({
+          max: 1,
+          min: 0,
+          change: function(event, ui) {
+            value = $(this).slider("value");
+            if(value == "0") {
+              $('#attending').addClass('slider_selected').removeClass('slider_notselected');
+              $('#not_attending').removeClass('slider_selected').addClass('slider_notselected');
+            } else {
+              $('#attending').removeClass('slider_selected').addClass('slider_notselected');
+              $('#not_attending').addClass('slider_selected').removeClass('slider_notselected');
+            }
+          }
+        });
+        $('#attending').on('click', function () {
+          $('#slider').slider("value", 0);
+        });
+        $('#not_attending').on('click', function () {
+          $('#slider').slider("value", 1);
+        });
+
+        $('#rsvp_button').on('click', function (e) {
+          e.preventDefault();
+          var doc = {};
+
+          slider_value = $('#slider').slider('value')
+          if (slider_value == 0) {
+            doc['attending'] = 'true';
+          } else {
+            doc['attending'] = 'false';
+          }
+
+          doc['names'] = []
+
+          $('.guest_name').each(function () {
+            id = $(this).attr('id');
+            doc['names'].push($('#' + id).val());
+          });
+
+          doc['diet_restrictions'] = $('#diet_restrictions').val();
+          doc_str = JSON.stringify(doc)
+          doc_key = "rsvp/" + uuid()
+          $('#rsvp_file').val(doc_str)
+          $('#rsvp_key').val(doc_key)
+          $('#rsvp_form').submit()
+          $('#rsvp_box').hide("blind");
+          $('#success_message').show("blind");
+          console.log(doc_key + " -> " + doc_str)
+        });
+
+        $('#add_button').on('click', function (e) {
+          e.preventDefault();
+          num_guests = $(this).data('num-guests') + 1
+          new_guest = "<span id='name_row" + num_guests.toString() + "'>" +
+          "<input type='text' class='span6 guest_name' id='name" + num_guests.toString() + "' placeholder='First and Last'>" +
+          "<button type='button' class='btn btn-peach remove_button' data-row-id='name_row" + num_guests.toString() + "'>-</button><br/></span>"
+          $(this).before(new_guest)
+          $(this).data('num-guests', num_guests)
+          loadRemoveButton();
+        });
+      });
     </script>
   </body>
 </html>
