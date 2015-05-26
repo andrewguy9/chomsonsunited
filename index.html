@@ -77,17 +77,16 @@
               <h3>Yay! Thank you</h3>
             </div>
           </div>
+          <div id="error_message" class="row" style="display:none;">
+            <div class="span12">
+              <h4>Oh noes!  There was an error - please try again or email us at chomsonsunited@gmail.com</h4>
+            </div>
+          </div>
+
 
           <div id="rsvp_box" class="row">
             <div class="span7 offset3">
               <form id="rsvp_form" name="rsvp" action="https://chomsonforms.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="key" id="rsvp_key" value="rsvp/test_stuff"> <!-- TODO HACK THIS -->
-                <input type="hidden" name="AWSAccessKeyId" value="AKIAJ4NGYR7BDC7CHQVA">
-                <input type="hidden" name="acl" value="private">
-                <input type="hidden" name="success_action_redirect" value="success.html">
-                <input type="hidden" name="policy" value="eyJleHBpcmF0aW9uIjogIjIwMTYtMDEtMDFUMDA6MDA6MDBaIiwKICAiY29uZGl0aW9ucyI6IFsKICAgIHsiYnVja2V0IjogImNob21zb25mb3JtcyJ9LAogICAgWyJzdGFydHMtd2l0aCIsICIka2V5IiwgInJzdnAvIl0sCiAgICB7ImFjbCI6ICJwcml2YXRlIn0sCiAgICB7InN1Y2Nlc3NfYWN0aW9uX3JlZGlyZWN0IjogInN1Y2Nlc3MuaHRtbCJ9LAogICAgWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsIDAsIDEwNDg1NzZdCiAgXQp9Cg==">
-                <input type="hidden" name="signature" value="AGmvSkZNiH1zSjogqMRDYjr1OBI=">
-                <input id='rsvp_file' name="file" type="hidden">
                 <div class="control-group">
                   <div class="controls">
                     <span class="span1 offset1" id="attending">Attending!!</span><span id="slider" class="span1"></span><span class="span2" id="not_attending">Regretfully Decline</span><br/><br/>
@@ -265,66 +264,6 @@
         map.mapTypes.set("Watercolor", new google.maps.StamenMapType("watercolor"));
       }
 
-      $('#attending').addClass('slider_selected');
-      $('#not_attending').addClass('slider_notselected');
-      $('#slider').slider({
-        max: 1,
-        min: 0,
-        change: function(event, ui) {
-          value = $(this).slider("value")
-          $('#attending').toggleClass('slider_selected');
-          $('#attending').toggleClass('slider_notselected');
-          $('#not_attending').toggleClass('slider_selected');
-          $('#not_attending').toggleClass('slider_notselected');
-        }
-      });
-      $('#attending').on('click', function () {
-        $('#slider').slider("value", 0);
-      });
-      $('#not_attending').on('click', function () {
-        $('#slider').slider("value", 1);
-      });
-
-      $('#rsvp_button').on('click', function (e) {
-        e.preventDefault();
-        var doc = {};
-
-        slider_value = $('#slider').slider('value')
-        if (slider_value == 0) {
-          doc['attending'] = 'true';
-        } else {
-          doc['attending'] = 'false';
-        }
-
-        doc['names'] = []
-
-        $('.guest_name').each(function () {
-          id = $(this).attr('id');
-          doc['names'].push($('#' + id).val());
-        });
-
-        doc['diet_restrictions'] = $('#diet_restrictions').val();
-        doc_str = JSON.stringify(doc)
-        doc_key = "rsvp/" + uuid()
-        $('#rsvp_file').val(doc_str)
-        $('#rsvp_key').val(doc_key)
-        $('#rsvp_form').submit()
-        $('#rsvp_box').hide("blind");
-        $('#success_message').show("blind");
-        console.log(doc_key + " -> " + doc_str)
-      });
-
-      $('#add_button').on('click', function (e) {
-        e.preventDefault();
-        num_guests = $(this).data('num-guests') + 1
-        new_guest = "<span id='name_row" + num_guests.toString() + "'>" +
-        "<input type='text' class='span6 guest_name' id='name" + num_guests.toString() + "' placeholder='First and Last'>" +
-        "<button type='button' class='btn btn-peach remove_button' data-row-id='name_row" + num_guests.toString() + "'>-</button><br/></span>"
-        $(this).before(new_guest)
-        $(this).data('num-guests', num_guests)
-        loadRemoveButton();
-      });
-
       function loadRemoveButton() {
         $('.remove_button').on('click', function (e) {
           e.preventDefault();
@@ -333,6 +272,105 @@
         });
       }
 
+      $(document).ready(function() {
+        $('#attending').addClass('slider_selected');
+        $('#not_attending').addClass('slider_notselected');
+        $('#slider').slider({
+          max: 1,
+          min: 0,
+          change: function(event, ui) {
+            value = $(this).slider("value");
+            if(value == "0") {
+              $('#attending').addClass('slider_selected').removeClass('slider_notselected');
+              $('#not_attending').removeClass('slider_selected').addClass('slider_notselected');
+            } else {
+              $('#attending').removeClass('slider_selected').addClass('slider_notselected');
+              $('#not_attending').addClass('slider_selected').removeClass('slider_notselected');
+            }
+          }
+        });
+        $('#attending').on('click', function () {
+          $('#slider').slider("value", 0);
+        });
+        $('#not_attending').on('click', function () {
+          $('#slider').slider("value", 1);
+        });
+
+        $('#rsvp_button').on('click', function (e) {
+          e.preventDefault();
+          $('#error_message').hide("blind");
+
+          var doc = {};
+
+          slider_value = $('#slider').slider('value')
+          if (slider_value == 0) {
+            doc['attending'] = 'true';
+          } else {
+            doc['attending'] = 'false';
+          }
+
+          doc['names'] = []
+
+          $('.guest_name').each(function () {
+            id = $(this).attr('id');
+            doc['names'].push($('#' + id).val());
+          });
+
+          doc['diet_restrictions'] = $('#diet_restrictions').val();
+          doc_str = JSON.stringify(doc)
+          doc_key = "rsvp/" + uuid()
+
+          var formData = new FormData();
+          formData.append("key", doc_key);
+          formData.append("AWSAccessKeyId", "AKIAJ4NGYR7BDC7CHQVA");
+          formData.append("acl", "private");
+          formData.append("success_action_redirect", "success.html");
+          formData.append("policy", "eyJleHBpcmF0aW9uIjogIjIwMTYtMDEtMDFUMDA6MDA6MDBaIiwKICAiY29uZGl0aW9ucyI6IFsKICAgIHsiYnVja2V0IjogImNob21zb25mb3JtcyJ9LAogICAgWyJzdGFydHMtd2l0aCIsICIka2V5IiwgInJzdnAvIl0sCiAgICB7ImFjbCI6ICJwcml2YXRlIn0sCiAgICB7InN1Y2Nlc3NfYWN0aW9uX3JlZGlyZWN0IjogInN1Y2Nlc3MuaHRtbCJ9LAogICAgWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsIDAsIDEwNDg1NzZdCiAgXQp9Cg==");
+          formData.append("signature", "AGmvSkZNiH1zSjogqMRDYjr1OBI=");
+          formData.append("file", doc_str);
+
+          $.ajax({
+            type: "POST",
+            contentType: false,
+            processData: false,
+            mimeType:"multipart/form-data",
+            url: $('#rsvp_form').attr('action'),
+            data: formData,
+            success: function(data) {
+              console.log("success");
+              $('#rsvp_box').hide("blind");
+              $('#success_message').show("blind");
+            },
+            error: function(jqXHR, textStatus, errorMessage) {
+              if (jqXHR.status != 0) {
+                console.log("error");
+                console.log("status " + textStatus)
+                console.log("emssage " + errorMessage);
+                console.log("thingy " + jqXHR.status);
+                $('#error_message').show("blind");
+              } else {
+                console.log("success");
+                console.log("status " + textStatus)
+                console.log("emssage " + errorMessage);
+                console.log("thingy " + jqXHR.status);
+                $('#rsvp_box').hide("blind");
+                $('#success_message').show("blind");
+              }
+            }
+          });
+        });
+
+        $('#add_button').on('click', function (e) {
+          e.preventDefault();
+          num_guests = $(this).data('num-guests') + 1
+          new_guest = "<span id='name_row" + num_guests.toString() + "'>" +
+          "<input type='text' class='span6 guest_name' id='name" + num_guests.toString() + "' placeholder='First and Last'>" +
+          "<button type='button' class='btn btn-peach remove_button' data-row-id='name_row" + num_guests.toString() + "'>-</button><br/></span>"
+          $(this).before(new_guest)
+          $(this).data('num-guests', num_guests)
+          loadRemoveButton();
+        });
+      });
     </script>
   </body>
 </html>
