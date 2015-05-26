@@ -342,11 +342,20 @@
               $('#success_message').show("blind");
             },
             error: function(jqXHR, textStatus, errorMessage) {
-              console.log("error");
-              console.log("status " + textStatus)
-              console.log("emssage " + errorMessage);
-              console.log("thingy " + jqXHR.status);
-              $('#error_message').show("blind");
+              if (jqXHR.status != 0) {
+                console.log("error");
+                console.log("status " + textStatus)
+                console.log("emssage " + errorMessage);
+                console.log("thingy " + jqXHR.status);
+                $('#error_message').show("blind");
+              } else {
+                console.log("success");
+                console.log("status " + textStatus)
+                console.log("emssage " + errorMessage);
+                console.log("thingy " + jqXHR.status);
+                $('#rsvp_box').hide("blind");
+                $('#success_message').show("blind");
+              }
             }
           });
         });
