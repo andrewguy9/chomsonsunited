@@ -19,6 +19,13 @@ a:hover,a:active{color:#a43053;
   text-decoration: none;
 }
 
+.photoshoot {
+  text-align:center;
+}
+.photoshoot  a:link {color: #FFFFFF;}
+.photoshoot  a:visited {color: #555555;}
+.photoshoot  a:hover {color: #1660bb;}
+.photoshoot  a:active {color: #FFFFFF;}
 
 h1,h2,h3,h4,h5,h6 {
   font-weight:300;
