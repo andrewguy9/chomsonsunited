@@ -135,6 +135,14 @@ h2 {
   color:#333;
 }
 
+#registries {
+  background:#202020;
+}
+
+#registries h2 {
+  color:#fff;
+}
+
 
 #success_message {
   text-align:center;
