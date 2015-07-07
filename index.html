@@ -10,7 +10,7 @@
     <script src="assets/js/jquery-ui-1.8.22.custom.min.js"></script>
     <script src="assets/js/jquery.imagesloaded.min.js"></script>
     <script src="assets/js/modernizr-2.5.3.min.js"></script>
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB2_fDpWOUX-_CfICIz9zUdhKjZkCDcVig&sensor=false"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.13"></script>
     <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
@@ -161,7 +161,75 @@
                 <p>The Muscle</p>
               </div>
             </li>
+          </ul>
+          <div class=photoshoot><h3><a href="https://www.facebook.com/media/set/?set=a.10103701381623383.1073741834.3226574&type=3">See the engagement photo shoot!</a></h3></div>
+          <h2>The Groomsmen</h2>
+          <ul class="thumbnails">
+            <li class="span3">
+              <div class="thumbnail">
+                <img alt="" src="assets/img/mark4.jpg">
+                <h3>Mark</h3>
+                <p>The Fixer</p>
+              </div>
+            </li>
 
+            <li class="span3">
+              <div class="thumbnail">
+                <img alt="" src="assets/img/laine1.jpg">
+                <h3>Laine</h3>
+                <p>The Gadget Guy</p>
+              </div>
+            </li>
+
+            <li class="span3">
+              <div class="thumbnail">
+                <img alt="" src="assets/img/jrod2.jpg">
+                <h3>Jared</h3>
+                <p>The Inside Man</p>
+              </div>
+            </li>
+
+            <li class="span3">
+              <div class="thumbnail">
+                <img alt="" src="assets/img/dan1.jpg">
+                <h3>Dan</h3>
+                <p>The Backer</p>
+              </div>
+            </li>
+          </ul>
+          <h2>The Bridesmaids</h2>
+          <ul class="thumbnails">
+            <li class="span3">
+              <div class="thumbnail">
+                <img alt="" src="assets/img/tiff2.jpg">
+                <h3>Tiffany</h3>
+                <p>The Legendary Thief</p>
+              </div>
+            </li>
+
+            <li class="span3">
+              <div class="thumbnail">
+                <img alt="" src="assets/img/wenwen4.jpg">
+                <h3>Wen Wen</h3>
+                <p>The Distraction</p>
+              </div>
+            </li>
+
+            <li class="span3">
+              <div class="thumbnail">
+                <img alt="" src="assets/img/yoyo2.jpg">
+                <h3>Yoo-Yoo</h3>
+                <p>The New Kid</p>
+              </div>
+            </li>
+
+            <li class="span3">
+              <div class="thumbnail">
+                <img alt="" src="assets/img/lois1.jpg">
+                <h3>Lois</h3>
+                <p>The Mission Control</p>
+              </div>
+            </li>
           </ul>
         </div>
       </div>
@@ -261,9 +329,9 @@
         var options = {
           center: new google.maps.LatLng(37.046447,-121.652471),
           zoom: 12,
-          mapTypeId: "Watercolor",
+          mapTypeId: "watercolor",
           mapTypeControlOptions: {
-            mapTypeIds: ["Watercolor", google.maps.MapTypeId.ROADMAP,]
+            mapTypeIds: ["watercolor", google.maps.MapTypeId.ROADMAP,]
           },
           panControl: false,
           zoomControl: false,
@@ -287,7 +355,8 @@
             alert('Geocode was not successful for the following reason: ' + status);
           }
         });
-        map.mapTypes.set("Watercolor", new google.maps.StamenMapType("watercolor"));
+
+        map.mapTypes.set("watercolor", new google.maps.StamenMapType("watercolor"));
       }
 
       function loadRemoveButton() {

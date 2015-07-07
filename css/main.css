@@ -3,7 +3,7 @@
 
 body {
   /* Change the background image here  */
-  background: url('../img/beach2.jpg') #000 top left fixed no-repeat;
+  background: url('../img/walk2.jpg') #000 top left fixed no-repeat;
   background-size: auto;
   font-family:'Open Sans',sans-serif;
 }
@@ -19,6 +19,13 @@ a:hover,a:active{color:#a43053;
   text-decoration: none;
 }
 
+.photoshoot {
+  text-align:center;
+}
+.photoshoot  a:link {color: #FFFFFF;}
+.photoshoot  a:visited {color: #555555;}
+.photoshoot  a:hover {color: #1660bb;}
+.photoshoot  a:active {color: #FFFFFF;}
 
 h1,h2,h3,h4,h5,h6 {
   font-weight:300;
@@ -70,12 +77,12 @@ h2 {
 #intro {
   margin-top:100px;
   text-align:center;
-  min-height:400px;
+  min-height:450px;
   padding:0 0 50px;
 }
 
 #intro h1,h2 {
-  color:#fff;
+  color:#000;
 }
 
 #intro p {
@@ -106,6 +113,10 @@ h2 {
 
 #rsvp_container {
   background:#202020;
+}
+
+#rsvp_container h2 {
+  color:#fff;
 }
 
 #address_container {
@@ -325,6 +336,21 @@ h2 {
 @media (max-width: 480px) {
   body {
     background-size: 350%;
+  }
+}
+
+@media (max-width: 400px) {
+  #intro {
+    min-height: 300px;
+  }
+
+  #intro h1 {
+    font-size:15px;
+    margin-bottom:5px;
+  }
+
+  #intro h2 {
+    font-size:12px;
   }
 }
 
